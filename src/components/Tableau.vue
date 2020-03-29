@@ -1,5 +1,5 @@
 <template>
-    <div id="tableau">
+    <div :id="{{ ref }}">
     </div>
 </template>
 
@@ -12,6 +12,7 @@ export default {
         width: '',
         height: '',
         filters: {},
+        ref: 'tableau'
         apiUrl: {
             default: 'https://public.tableau.com/javascripts/api/tableau-2.2.2.min.js'
         }
@@ -49,7 +50,7 @@ export default {
     },
     methods: {
         initViz () {
-            const containerDiv = document.getElementById("tableau")
+            const containerDiv = document.getElementById(this.ref)
             // Setting up constructor options
             let options = {}
             if (!this.options) {
